@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="CartoonHub: personagens de Rick and Morty carregados em tempo real por uma API pública." />
+    <meta name="theme-color" content="#07111f" />
+    <title>CartoonHub — Memórias Animadas</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header" id="inicio">
+      <a class="brand" href="#inicio" aria-label="CartoonHub, voltar ao início">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>
+          <strong>Cartoon<span>Hub</span></strong>
+          <small>memórias animadas</small>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a href="#explore">Explorar</a>
+        <a href="#sobre">Sobre o projeto</a>
+        <a href="#api">API utilizada</a>
+      </nav>
+      <a class="header-cta" href="#explore">Ver personagens <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="pulse-dot"></span> dados carregados em tempo real</p>
+          <h1 id="hero-title">Uma viagem<br /><em>interdimensional</em><br />pela infância.</h1>
+          <p class="hero-text">Revisitamos personagens que atravessaram gerações — agora com dados vivos, vindos diretamente de uma API pública.</p>
+          <a class="primary-button" href="#explore">Explorar o multiverso <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-art" aria-label="Ilustração decorativa inspirada em uma viagem pelo espaço">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="planet planet-main"><span>✦</span></div>
+          <div class="planet planet-small"></div>
+          <div class="spark spark-one">✦</div>
+          <div class="spark spark-two">+</div>
+          <div class="spark spark-three">✦</div>
+          <div class="hero-sticker">API<br /><span>LIVE</span></div>
+        </div>
+        <div class="hero-note"><span>01</span><span>personagens do<br />multiverso</span></div>
+      </section>
+
+      <section class="intro-strip" aria-label="Resumo do projeto">
+        <p><span class="strip-icon">✦</span> tecnologia que transforma<br /><strong>nostalgia em descoberta.</strong></p>
+        <p class="strip-detail">Uma interface feita com<br /><span>HTML + CSS + JavaScript</span></p>
+        <p class="strip-detail">Dados obtidos por<br /><span>Rick and Morty API</span></p>
+      </section>
+
+      <section class="explore-section" id="explore" aria-labelledby="explore-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">/ arquivo interdimensional</p>
+            <h2 id="explore-title">Conheça o elenco<span>.</span></h2>
+          </div>
+          <p class="heading-description">Cada card abaixo é criado automaticamente pelo JavaScript a partir da resposta da API.</p>
+        </div>
+
+        <div class="toolbar" aria-label="Ferramentas de busca e filtro">
+          <label class="search-box" for="search-input">
+            <span aria-hidden="true">⌕</span>
+            <input id="search-input" type="search" placeholder="Buscar personagem..." autocomplete="off" />
+          </label>
+          <div class="filter-group" role="group" aria-label="Filtrar por status">
+            <button class="filter-button active" type="button" data-status="Todos">Todos</button>
+            <button class="filter-button" type="button" data-status="Alive">Vivos</button>
+            <button class="filter-button" type="button" data-status="Dead">Mortos</button>
+            <button class="filter-button" type="button" data-status="unknown">Desconhecido</button>
+          </div>
+          <button class="favorites-button" id="favorites-toggle" type="button" aria-pressed="false"><span aria-hidden="true">♡</span> Favoritos</button>
+        </div>
+
+        <div class="results-line">
+          <p id="results-count">Consultando o multiverso...</p>
+          <button class="text-button" id="reload-button" type="button">Atualizar dados <span aria-hidden="true">↻</span></button>
+        </div>
+
+        <div id="characters-grid" class="characters-grid" aria-live="polite" aria-busy="true"></div>
+        <div id="empty-state" class="empty-state" hidden>
+          <span aria-hidden="true">◌</span>
+          <h3>Nenhum personagem encontrado</h3>
+          <p>Tente outro termo ou limpe os filtros para continuar a exploração.</p>
+        </div>
+        <div id="error-state" class="error-state" hidden role="alert">
+          <span aria-hidden="true">!</span>
+          <div>
+            <h3>O portal não respondeu</h3>
+            <p>Não foi possível carregar os personagens agora. Verifique sua conexão e tente novamente.</p>
+          </div>
+          <button class="primary-button compact" id="retry-button" type="button">Tentar de novo</button>
+        </div>
+      </section>
+
+      <section class="about-section" id="sobre" aria-labelledby="about-title">
+        <div class="about-number">02</div>
+        <div class="about-copy">
+          <p class="eyebrow">/ por trás da tela</p>
+          <h2 id="about-title">O passado encontra<br /><em>o código.</em></h2>
+          <p>O CartoonHub é um projeto acadêmico desenvolvido por <strong>Talita Aparecida de Oliveira</strong> para demonstrar, de forma prática, como uma página front-end pode conversar com uma API e transformar respostas JSON em uma experiência visual.</p>
+          <p>Sem frameworks: apenas estrutura semântica, estilo autoral e JavaScript manipulando o DOM.</p>
+        </div>
+        <div class="about-facts">
+          <div class="fact"><strong>03</strong><span>tecnologias<br />essenciais</span></div>
+          <div class="fact"><strong>100%</strong><span>cards criados<br />dinamicamente</span></div>
+          <div class="fact"><strong>01</strong><span>API pública<br />sem token</span></div>
+        </div>
+      </section>
+
+      <section class="api-section" id="api" aria-labelledby="api-title">
+        <div class="api-card">
+          <div class="api-card-top">
+            <p class="eyebrow">/ fonte dos dados</p>
+            <span class="live-label"><span class="pulse-dot"></span> conectada</span>
+          </div>
+          <h2 id="api-title">Rick and Morty<br /><em>API</em></h2>
+          <p>Uma API REST gratuita que disponibiliza personagens, episódios e locais do universo de Rick and Morty em formato JSON.</p>
+          <a href="https://rickandmortyapi.com/documentation" target="_blank" rel="noreferrer" class="api-link">Ler documentação <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="api-code" aria-label="Exemplo visual do endpoint utilizado">
+          <span class="code-line"><i>GET</i> <b>https://rickandmortyapi.com</b></span>
+          <span class="code-line indent">/api/character</span>
+          <span class="code-line code-muted">// resposta em JSON</span>
+          <span class="code-line code-brace">{</span>
+          <span class="code-line indent"><span class="code-key">"info"</span>: { <span class="code-key">"pages"</span>: <span class="code-value">42</span> },</span>
+          <span class="code-line indent"><span class="code-key">"results"</span>: [ ...personagens ]</span>
+          <span class="code-line code-brace">}</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand" href="#inicio" aria-label="Voltar ao início">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span><strong>Cartoon<span>Hub</span></strong><small>memórias animadas</small></span>
+      </a>
+      <p>Projeto acadêmico · Talita Aparecida de Oliveira · 2026</p>
+      <a href="#inicio" class="back-top">Voltar ao topo ↑</a>
+    </footer>
+
+    <dialog id="character-dialog" class="character-dialog">
+      <button class="dialog-close" id="dialog-close" type="button" aria-label="Fechar detalhes">×</button>
+      <div id="dialog-content"></div>
+    </dialog>
+  </body>
+</html>
